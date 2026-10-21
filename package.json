@@ -4,12 +4,12 @@
   "private": true,
   "description": "Free, browser-based online tools. Static site with a zero-dependency build.",
   "type": "module",
-  "engines": {
-    "node": ">=16"
-  },
+  "engines": { "node": ">=16" },
   "scripts": {
     "build": "node scripts/build.mjs",
     "serve": "node scripts/serve.mjs",
-    "dev": "node scripts/build.mjs && node scripts/serve.mjs"
+    "dev": "node scripts/build.mjs && node scripts/serve.mjs",
+    "test": "node tests/run.mjs",
+    "check": "node scripts/build.mjs && node tests/run.mjs && node scripts/check-links.mjs"
   }
 }
