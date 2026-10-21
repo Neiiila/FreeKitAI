@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>%TITLE%</title>
+<meta name="description" content="%DESCRIPTION%">
+<link rel="canonical" href="%CANONICAL%">
+%ROBOTS%
+<meta property="og:type" content="%OG_TYPE%">
+<meta property="og:site_name" content="{{site.name}}">
+<meta property="og:title" content="%TITLE%">
+<meta property="og:description" content="%DESCRIPTION%">
+<meta property="og:url" content="%CANONICAL%">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0f1218" media="(prefers-color-scheme: dark)">
+%VERIFICATION%
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<script src="/assets/js/theme-init.js"></script>
+<link rel="stylesheet" href="/assets/css/styles.css">
+%JSONLD%
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="logo" href="/" aria-label="{{site.name}} home"><span class="logo-mark" aria-hidden="true">F</span><span class="logo-text">{{site.name}}</span></a>
+    <button class="icon-btn menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">{{icon menu}}<span class="sr-only">Menu</span></button>
+    <div class="nav-wrap" id="site-nav">
+      <nav aria-label="Main">
+        <ul class="nav-list">
+          <li><a href="/tools/"%NAV_TOOLS%>All Tools</a></li>
+          <li><a href="/for-work/"%NAV_WORK%>For Work</a></li>
+          <li><a href="/for-business/"%NAV_BUSINESS%>For Business</a></li>
+          <li><a href="/guides/"%NAV_GUIDES%>Guides</a></li>
+          <li><a href="/about/"%NAV_ABOUT%>About</a></li>
+        </ul>
+      </nav>
+      <form class="header-search" action="/tools/" method="get" role="search">
+        <label class="sr-only" for="header-q">Search tools</label>
+        <input id="header-q" name="q" type="search" placeholder="Search tools" autocomplete="off">
+        <button class="icon-btn" type="submit">{{icon search}}<span class="sr-only">Search</span></button>
+      </form>
+      <button class="icon-btn theme-toggle" type="button" aria-pressed="false" data-theme-toggle>
+        <span class="theme-icon-dark">{{icon moon}}</span><span class="theme-icon-light">{{icon sun}}</span>
+        <span class="sr-only">Dark theme</span>
+      </button>
+    </div>
+  </div>
+</header>
+<main id="main" tabindex="-1">
+%BREADCRUMBS%
+%CONTENT%
+</main>
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <a class="logo" href="/"><span class="logo-mark" aria-hidden="true">F</span><span class="logo-text">{{site.name}}</span></a>
+      <p>{{site.mission}}</p>
+      <p class="footer-small">Our tools run in your browser. What you type is not sent to our servers.</p>
+    </div>
+    <div>
+      <h2 class="footer-heading">Tools</h2>
+      <ul class="footer-list">%FOOTER_TOOLS%</ul>
+    </div>
+    <div>
+      <h2 class="footer-heading">Site</h2>
+      <ul class="footer-list">
+        <li><a href="/tools/">All Tools</a></li>
+        <li><a href="/guides/">Guides</a></li>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/contact/">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2 class="footer-heading">Legal</h2>
+      <ul class="footer-list">
+        <li><a href="/privacy/">Privacy Policy</a></li>
+        <li><a href="/privacy/#cookies">Cookie Information</a></li>
+        <li><a href="/terms/">Terms of Use</a></li>
+        <li><a href="/affiliate-disclosure/">Affiliate Disclosure</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <p>&copy; {{year}} {{site.name}}. All rights reserved.</p>
+  </div>
+</footer>
+<div class="sr-only" aria-live="polite" id="live-region"></div>
+<script type="module" src="/assets/js/site.js"></script>
+%SCRIPTS%
+%ANALYTICS%
+</body>
+</html>

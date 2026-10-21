@@ -1,0 +1,86 @@
+{
+  "categories": [
+    {
+      "id": "writing",
+      "name": "Writing & Communication",
+      "description": "Draft clearer emails and messages in less time.",
+      "icon": "pen"
+    },
+    {
+      "id": "career",
+      "name": "Career & Productivity",
+      "description": "Present your experience clearly and get routine work done faster.",
+      "icon": "briefcase"
+    },
+    {
+      "id": "social",
+      "name": "Social Media & Marketing",
+      "description": "Plan captions and posts for the platforms you use.",
+      "icon": "megaphone"
+    },
+    {
+      "id": "text",
+      "name": "Text & Document Utilities",
+      "description": "Count, clean, and reformat text right in your browser.",
+      "icon": "doc"
+    },
+    {
+      "id": "ecommerce",
+      "name": "E-commerce & Small Business",
+      "description": "Draft product copy based on the facts you provide.",
+      "icon": "bag"
+    }
+  ],
+  "tools": [
+    {
+      "id": "resume-bullet-generator",
+      "name": "Resume Bullet Generator",
+      "path": "/tools/resume-bullet-generator/",
+      "description": "Turn a plain description of your work into three clearer resume bullet points you can edit.",
+      "categories": ["career", "writing"],
+      "audiences": ["work"],
+      "icon": "list",
+      "keywords": "resume cv bullet points experience job application career achievements"
+    },
+    {
+      "id": "email-generator",
+      "name": "Professional Email Generator",
+      "path": "/tools/email-generator/",
+      "description": "Draft a subject line and email body for follow-ups, requests, thank-you notes, and replies.",
+      "categories": ["writing", "career"],
+      "audiences": ["work", "business"],
+      "icon": "mail",
+      "keywords": "email reply follow up thank you letter message professional template interview"
+    },
+    {
+      "id": "social-media-caption-generator",
+      "name": "Social Media Caption Generator",
+      "path": "/tools/social-media-caption-generator/",
+      "description": "Get three caption drafts for Instagram, TikTok, Facebook, or LinkedIn, with optional hashtags.",
+      "categories": ["social"],
+      "audiences": ["business"],
+      "icon": "megaphone",
+      "keywords": "caption instagram tiktok facebook linkedin hashtags post social media marketing"
+    },
+    {
+      "id": "word-counter",
+      "name": "Word Counter & Text Cleaner",
+      "path": "/tools/word-counter/",
+      "description": "Count words, characters, and sentences, then clean spacing and change letter case.",
+      "categories": ["text", "writing"],
+      "audiences": ["work"],
+      "icon": "doc",
+      "keywords": "word count character counter reading time text cleaner uppercase lowercase title case spaces"
+    },
+    {
+      "id": "product-description-generator",
+      "name": "Product Description Generator",
+      "path": "/tools/product-description-generator/",
+      "description": "Draft a product title, short and long descriptions, and feature bullets from your own facts.",
+      "categories": ["ecommerce", "social"],
+      "audiences": ["business"],
+      "icon": "bag",
+      "keywords": "product description ecommerce online store listing etsy shopify copywriting seller"
+    }
+  ]
+}
