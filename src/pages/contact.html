@@ -1,0 +1,37 @@
+<!--meta
+{
+  "title": "Contact",
+  "description": "How to contact the FreeKit AI team with feedback, bug reports, or tool ideas.",
+  "section": "about",
+  "breadcrumbs": [["Contact", "/contact/"]]
+}
+-->
+<div class="container">
+  <header class="page-head">
+    <h1>Contact us</h1>
+    <p class="lead">Feedback, bug reports, and tool ideas are welcome. They help us decide what to build next.</p>
+  </header>
+  <div class="prose">
+    {{#if contactEmail}}
+    <h2>Email</h2>
+    <p>Write to us at {{contactLine}}. We read every message, but we cannot promise to reply to all of them.</p>
+    {{else}}
+    <div class="draft-banner" role="note">
+      <strong>Site owner:</strong> no contact address is configured yet. Add <code>contactEmail</code> to <code>site.config.json</code> and rebuild. To add a contact form, see <code>docs/SERVICES.md</code>. Remove this note before launch.
+    </div>
+    <h2>Email</h2>
+    <p>Contact address: {{contactLine}}</p>
+    {{/if}}
+
+    <h2>Helpful details to include</h2>
+    <ul>
+      <li>Which tool you were using, and its address (for example <code>/tools/word-counter/</code>).</li>
+      <li>What you expected to happen, and what happened instead.</li>
+      <li>Your browser and device, if you are reporting a bug.</li>
+    </ul>
+    <p>Please do not send sensitive personal information, such as passwords, ID numbers, or financial details.</p>
+
+    <h2>Privacy</h2>
+    <p>If you email us, we receive your email address and the content of your message. We use them only to read and reply to your message. See the <a href="/privacy/">privacy policy</a>.</p>
+  </div>
+</div>

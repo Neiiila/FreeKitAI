@@ -1,0 +1,65 @@
+<!--meta
+{
+  "title": "Privacy Policy",
+  "description": "What data FreeKit AI collects and does not collect, how the browser-based tools handle your text, and information about cookies.",
+  "section": "about",
+  "updated": "2026-10-20",
+  "breadcrumbs": [["Privacy Policy", "/privacy/"]]
+}
+-->
+<div class="container">
+  <header class="page-head">
+    <h1>Privacy Policy</h1>
+    <p class="small muted">Last updated: {{site.lastUpdated}}</p>
+  </header>
+  <div class="prose">
+    <div class="draft-banner" role="note">
+      <strong>Draft.</strong> This policy describes how the site is built today. Before launch, the site owner must check it against the services actually used and the laws that apply to them and their visitors, and should ideally have it reviewed by a qualified professional. Remove this note when done.
+    </div>
+
+    <h2>Summary</h2>
+    <ul>
+      <li>You do not need an account, and we do not ask for your name or email to use the tools.</li>
+      <li>The text you type into our tools is processed in your browser. It is not sent to our servers and we do not store it.</li>
+      <li>Like almost every website, our hosting provider processes basic technical data (such as IP addresses) to deliver and protect the site.</li>
+      {{#if analytics}}<li>We use privacy-focused, cookie-free analytics to count visits in aggregate.</li>{{else}}<li>We do not currently use analytics or advertising trackers.</li>{{/if}}
+    </ul>
+
+    <h2>Who we are</h2>
+    {{#if operator}}<p>This website is operated by {{site.operator}}.</p>{{else}}<p><span class="placeholder-note">[Site owner: add the name of the person or business operating the site, and a postal address if required in your country, by setting <code>operator</code> in <code>site.config.json</code>.]</span></p>{{/if}}
+    <p>Contact: {{contactLine}}</p>
+
+    <h2>Text you enter into the tools</h2>
+    <p>Our tools (the Resume Bullet Generator, Email Generator, Social Media Caption Generator, Word Counter &amp; Text Cleaner, and Product Description Generator) run as JavaScript in your browser. When you type or paste text, it is processed on your device. We do not send it to our servers or third parties, and we do not save it. When you close or reload the page, it is gone.</p>
+    <p>If you use the copy button, the text is placed on your device's clipboard, which is controlled by your operating system.</p>
+
+    <h2>Data processed by our hosting provider</h2>
+    <p>The site is hosted on Cloudflare Pages. To deliver pages and protect the site against abuse, Cloudflare processes technical information about each request, such as your IP address, browser type, the page requested, and the time of the request. This is standard for websites. Cloudflare handles this data under its own privacy policy: <a href="https://www.cloudflare.com/privacypolicy/" rel="noopener">cloudflare.com/privacypolicy</a>.</p>
+
+    {{#if analytics}}
+    <h2>Analytics</h2>
+    <p>We use Cloudflare Web Analytics to understand which pages are visited, so we can improve the site. It does not use cookies or local storage to track you and reports visits in aggregate. Learn more at <a href="https://www.cloudflare.com/web-analytics/" rel="noopener">cloudflare.com/web-analytics</a>.</p>
+    {{/if}}
+
+    <h2 id="cookies">Cookies and local storage</h2>
+    <p><strong>We do not set cookies.</strong></p>
+    <p>If you switch between the light and dark theme, your choice is saved in your browser's local storage under the name <code>fk-theme</code>, so the site remembers it on your next visit. It never leaves your device. You can remove it at any time by clearing your browser's site data.</p>
+    <p>Our hosting provider may set strictly necessary security cookies, for example to tell legitimate visitors apart from automated attacks. These are not used for advertising.</p>
+    <p>If we add advertising or affiliate links in the future, those third parties may use cookies. We will update this policy first, and ask for your consent where the law requires it.</p>
+
+    <h2>Emails you send us</h2>
+    <p>If you contact us by email, we receive your email address and your message. We use them only to respond, and we delete correspondence when it is no longer needed.</p>
+
+    <h2>Links to other websites</h2>
+    <p>Our pages may link to other websites. Their privacy practices are their own, so please read their policies.</p>
+
+    <h2>Children</h2>
+    <p>The site is intended for a general audience and is not directed at children. We do not knowingly collect personal information from children.</p>
+
+    <h2>Your rights</h2>
+    <p>Depending on where you live, you may have rights to access, correct, or delete personal data about you, or to object to how it is used. Because we do not collect personal data through the tools, there is usually nothing to access. If you have emailed us, contact us and we will help.</p>
+
+    <h2>Changes to this policy</h2>
+    <p>We will update this page if the way the site works changes, for example if we add analytics, advertising, or a contact form. The date at the top shows the latest version.</p>
+  </div>
+</div>
