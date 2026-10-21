@@ -1,0 +1,143 @@
+<!--meta
+{
+  "title": "Free Word Counter & Text Cleaner – Count Words and Fix Spacing",
+  "description": "Count words, characters, sentences and reading time as you type. Remove extra spaces, fix line breaks, and change case. Your text never leaves your browser.",
+  "h1": "Word Counter & Text Cleaner",
+  "section": "tools",
+  "toolId": "word-counter",
+  "breadcrumbs": [["All Tools", "/tools/"], ["Word Counter", "/tools/word-counter/"]],
+  "scripts": ["/assets/js/tools/word-counter.js"]
+}
+-->
+<div class="container">
+  <header class="page-head">
+    <h1>Word Counter &amp; Text Cleaner</h1>
+    <p class="lead">Paste or type your text to see the word count, character count, and reading time update instantly. Then tidy it up: remove extra spaces, fix messy line breaks, or change the letter case.</p>
+    <p class="badge badge-local">{{icon lock}}<span>100% in your browser &middot; Text is never uploaded</span></p>
+  </header>
+
+  <div class="tool-layout tool-layout-wide">
+    <section class="panel" aria-labelledby="wc-input-label">
+      <div class="field">
+        <h2 class="panel-title"><label id="wc-input-label" for="wc-text">Your text</label></h2>
+        <textarea id="wc-text" class="wc-input" rows="14" spellcheck="true" placeholder="Start typing or paste your text here…" aria-describedby="wc-privacy"></textarea>
+        <p class="hint" id="wc-privacy">Processing happens on your device. Nothing you type is sent to a server or saved.</p>
+      </div>
+      <div class="btn-row">
+        <button class="btn btn-primary btn-sm" type="button" id="wc-copy">Copy text</button>
+        <button class="btn btn-secondary btn-sm" type="button" id="wc-undo" disabled>Undo last change</button>
+        <button class="btn btn-ghost btn-sm" type="button" id="wc-clear">Clear all</button>
+      </div>
+    </section>
+
+    <div class="grid">
+      <section class="panel" aria-labelledby="wc-stats-title">
+        <h2 class="panel-title" id="wc-stats-title">Counts</h2>
+        <dl class="stats" id="wc-stats">
+          <div class="stat"><dt>Words</dt><dd data-stat="words">0</dd></div>
+          <div class="stat"><dt>Characters</dt><dd data-stat="characters">0</dd></div>
+          <div class="stat"><dt>Characters without spaces</dt><dd data-stat="charactersNoSpaces">0</dd></div>
+          <div class="stat"><dt>Sentences</dt><dd data-stat="sentences">0</dd></div>
+          <div class="stat"><dt>Paragraphs</dt><dd data-stat="paragraphs">0</dd></div>
+          <div class="stat"><dt>Reading time</dt><dd data-stat="readingTime">0 sec</dd></div>
+          <div class="stat"><dt>Speaking time</dt><dd data-stat="speakingTime">0 sec</dd></div>
+        </dl>
+        <p class="small muted">Reading time assumes about 238 words per minute; speaking time about 140. Sentence counts are estimates.</p>
+      </section>
+
+      <section class="panel" aria-labelledby="wc-clean-title">
+        <h2 class="panel-title" id="wc-clean-title">Clean &amp; convert</h2>
+        <div class="tool-actions-group">
+          <h3>Clean up</h3>
+          <div class="btn-row">
+            <button class="btn btn-secondary btn-sm" type="button" data-transform="removeExtraSpaces">Remove extra spaces</button>
+            <button class="btn btn-secondary btn-sm" type="button" data-transform="normalizeLineBreaks">Normalize line breaks</button>
+            <button class="btn btn-secondary btn-sm" type="button" data-transform="joinBrokenLines">Join broken lines</button>
+          </div>
+        </div>
+        <div class="tool-actions-group">
+          <h3>Change case</h3>
+          <div class="btn-row">
+            <button class="btn btn-secondary btn-sm" type="button" data-transform="upper">UPPERCASE</button>
+            <button class="btn btn-secondary btn-sm" type="button" data-transform="lower">lowercase</button>
+            <button class="btn btn-secondary btn-sm" type="button" data-transform="title">Title Case</button>
+            <button class="btn btn-secondary btn-sm" type="button" data-transform="sentence">Sentence case</button>
+          </div>
+        </div>
+        <p class="notice notice-info" id="wc-status" hidden></p>
+      </section>
+    </div>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container content-grid">
+    <div class="prose">
+      <h2>How to use the word counter</h2>
+      <ol>
+        <li>Type or paste text into the box. All counts update as you type.</li>
+        <li>Use <strong>Clean up</strong> to fix spacing, for example after copying from a PDF or website.</li>
+        <li>Use <strong>Change case</strong> for headings or text typed with Caps Lock on.</li>
+        <li>Made a mistake? <strong>Undo last change</strong> restores the text from before the last button you used.</li>
+        <li>Select <strong>Copy text</strong> and paste the result where you need it.</li>
+      </ol>
+
+      <h2>What each cleaning option does</h2>
+      <ul>
+        <li><strong>Remove extra spaces</strong>: turns runs of spaces and tabs into one space, trims each line, and removes spaces before punctuation. Line breaks stay.</li>
+        <li><strong>Normalize line breaks</strong>: makes Windows and Mac line endings the same, removes trailing spaces, and allows at most one blank line between paragraphs.</li>
+        <li><strong>Join broken lines</strong>: rejoins sentences that were split across lines (common when copying from PDFs), and keeps blank lines between paragraphs.</li>
+        <li><strong>Title Case</strong>: capitalizes main words and keeps short words like “and” or “of” in lower case. Acronyms such as “NASA” are kept.</li>
+      </ul>
+
+      <h2>Common uses</h2>
+      <ul>
+        <li>Checking an essay or cover letter against a word limit.</li>
+        <li>Keeping a meta description or social post under a character limit.</li>
+        <li>Estimating how long a speech or video script will take to read aloud.</li>
+        <li>Cleaning up text pasted from a PDF before editing it.</li>
+      </ul>
+
+      <h2>Limitations</h2>
+      <ul>
+        <li>Word counts can differ slightly between tools. For example, some count “e-mail” or “2,500” differently. If a limit is strict, check with the tool your school or publisher uses.</li>
+        <li>Sentence detection uses punctuation, so lists and headings without full stops may not be counted as sentences.</li>
+        <li>Title Case follows general rules; style guides (AP, Chicago, APA) differ in the details.</li>
+      </ul>
+
+      <h2>Frequently asked questions</h2>
+      <div class="faq">
+        <details>
+          <summary>Is my text uploaded or saved?</summary>
+          <div><p>No. The counting and cleaning run in JavaScript on your device. The text is not sent to a server and is not saved, so it is gone when you close or reload the page.</p></div>
+        </details>
+        <details>
+          <summary>Are spaces counted as characters?</summary>
+          <div><p>Both numbers are shown: “Characters” includes spaces and line breaks, and “Characters without spaces” excludes all whitespace.</p></div>
+        </details>
+        <details>
+          <summary>How is reading time calculated?</summary>
+          <div><p>The word count divided by about 238 words per minute, a widely cited average for adults silently reading non-fiction. Real reading speed varies a lot from person to person.</p></div>
+        </details>
+        <details>
+          <summary>Does it work with languages other than English?</summary>
+          <div><p>Character counts work for any language. Word counts use your browser's built-in word detection, which supports many languages, but the site itself is in English.</p></div>
+        </details>
+      </div>
+    </div>
+    <aside>
+      <div class="card sidebar-box">
+        <h2 class="card-title">Need to write, not just count?</h2>
+        <p class="card-text">Draft a professional email or resume bullets, then check the length here.</p>
+        <p><a href="/tools/email-generator/">Email Generator</a><br><a href="/tools/resume-bullet-generator/">Resume Bullet Generator</a></p>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <h2>Related free tools</h2>
+    {{relatedTools word-counter}}
+  </div>
+</section>
