@@ -1,0 +1,153 @@
+<!--meta
+{
+  "title": "Free Product Description Generator for Online Stores",
+  "description": "Draft a product title, short and detailed descriptions, feature bullets, and calls to action from the facts you provide. Free, no sign-up, no invented claims.",
+  "h1": "Product Description Generator",
+  "section": "tools",
+  "toolId": "product-description-generator",
+  "breadcrumbs": [["All Tools", "/tools/"], ["Product Description Generator", "/tools/product-description-generator/"]],
+  "scripts": ["/assets/js/tools/product.js"]
+}
+-->
+<div class="container">
+  <header class="page-head">
+    <h1>Product Description Generator</h1>
+    <p class="lead">For small shops and online sellers: enter what you know to be true about your product, and get a title idea, a short and a detailed description, feature bullets, and call-to-action lines to edit.</p>
+    <p class="badge badge-local">{{icon lock}}<span>Runs in your browser &middot; No sign-up</span></p>
+  </header>
+
+  <div class="tool-layout">
+    <section class="panel" aria-labelledby="pd-form-title">
+      <h2 class="panel-title" id="pd-form-title">Product facts</h2>
+      <form id="pd-form" novalidate>
+        <div class="field-row">
+          <div class="field">
+            <label for="pd-name">Product name</label>
+            <input id="pd-name" name="name" type="text" placeholder="e.g. Harvest Glow" aria-describedby="pd-name-error" required>
+            <p class="error-msg" id="pd-name-error"></p>
+          </div>
+          <div class="field">
+            <label for="pd-category">Category</label>
+            <input id="pd-category" name="category" type="text" placeholder="e.g. scented candle" aria-describedby="pd-category-error" required>
+            <p class="error-msg" id="pd-category-error"></p>
+          </div>
+        </div>
+        <div class="field">
+          <label for="pd-features">Verified features</label>
+          <p class="hint" id="pd-features-hint">One per line. Only include facts you can confirm, such as size, materials, or what is in the box.</p>
+          <textarea id="pd-features" name="features" rows="5" aria-describedby="pd-features-hint pd-features-error" placeholder="Hand-poured soy wax&#10;Burn time of about 40 hours&#10;Reusable glass jar" required></textarea>
+          <p class="error-msg" id="pd-features-error"></p>
+        </div>
+        <div class="field">
+          <label for="pd-audience">Intended audience <span class="optional">(optional)</span></label>
+          <input id="pd-audience" name="audience" type="text" placeholder="e.g. people who love a cozy home">
+        </div>
+        <div class="field">
+          <label for="pd-keywords">Keywords <span class="optional">(optional)</span></label>
+          <input id="pd-keywords" name="keywords" type="text" placeholder="e.g. soy candle, autumn candle gift" aria-describedby="pd-keywords-hint">
+          <p class="hint" id="pd-keywords-hint">Words shoppers search for. Separate with commas.</p>
+        </div>
+        <fieldset class="field">
+          <legend>Tone</legend>
+          <div class="segmented">
+            <label><input type="radio" name="tone" value="professional" checked><span>Professional</span></label>
+            <label><input type="radio" name="tone" value="friendly"><span>Friendly</span></label>
+            <label><input type="radio" name="tone" value="premium"><span>Premium</span></label>
+            <label><input type="radio" name="tone" value="minimalist"><span>Minimalist</span></label>
+          </div>
+        </fieldset>
+        <fieldset class="field">
+          <legend>Detailed description length</legend>
+          <div class="segmented">
+            <label><input type="radio" name="length" value="short"><span>Short</span></label>
+            <label><input type="radio" name="length" value="medium" checked><span>Medium</span></label>
+            <label><input type="radio" name="length" value="long"><span>Long</span></label>
+          </div>
+        </fieldset>
+        <div class="btn-row">
+          <button class="btn btn-primary" type="submit">Generate description</button>
+          <button class="btn btn-ghost" type="reset">Reset</button>
+          <button class="btn btn-ghost" type="button" data-example>Try an example</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="panel" aria-labelledby="pd-out-title">
+      <h2 class="panel-title" id="pd-out-title">
+        <span>Your product copy</span>
+        <button class="btn btn-secondary btn-sm" type="button" id="pd-again" hidden>Try another version</button>
+      </h2>
+      <div id="pd-notes"></div>
+      <div class="output-empty" id="pd-empty">
+        <span class="card-icon">{{icon bag}}</span>
+        <p>Your title, descriptions, bullets, and calls to action will appear here.</p>
+      </div>
+      <div id="pd-results"></div>
+      <p class="disclaimer">This tool arranges your own facts into templates. It is not AI and does not add materials, certifications, health benefits, or performance claims. You are responsible for making sure your listing is accurate and follows the rules of your marketplace and country.</p>
+    </section>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container content-grid">
+    <div class="prose">
+      <h2>How to use the product description generator</h2>
+      <ol>
+        <li>Enter the product name and a plain category, such as “ceramic mug” or “leather wallet”.</li>
+        <li>List the features you can verify, one per line. These are the only facts the tool uses.</li>
+        <li>Add your audience and a few search keywords, choose a tone, and generate.</li>
+        <li>Copy each part into your store: the title, the short description for previews, the detailed description, and the bullets.</li>
+      </ol>
+
+      <h2>Why the tool only uses your facts</h2>
+      <p>Product descriptions that overstate things lead to returns, bad reviews, and sometimes legal trouble. Claims about health, safety, certifications, or materials need proof. That is why the generator never invents them. If you enter a risky word such as “organic” or “cures”, it shows a reminder to check that you can back it up.</p>
+
+      <h2>Example</h2>
+      <div class="example">
+        <span class="label">You enter</span>
+        <p>Harvest Glow, scented candle. Features: hand-poured soy wax; burn time of about 40 hours; reusable glass jar. Audience: people who love a cozy home.</p>
+      </div>
+      <div class="example">
+        <span class="label">Short description (Professional)</span>
+        <p>Harvest Glow is a scented candle for people who love a cozy home. Key features include hand-poured soy wax and burn time of about 40 hours.</p>
+      </div>
+
+      <h2>Limitations</h2>
+      <ul>
+        <li>The tool does not know your product. If a feature is vague, the description will be vague too, so be specific.</li>
+        <li>Features are used as you wrote them. Write them as short phrases such as “reusable glass jar” rather than full sentences.</li>
+        <li>Marketplaces have their own title and description rules. Check them before you publish.</li>
+      </ul>
+
+      <h2>Frequently asked questions</h2>
+      <div class="faq">
+        <details>
+          <summary>Does this use AI?</summary>
+          <div><p>No. The generator fills structured templates with your product facts. It is predictable, fast, and free, and it cannot make up details about your product.</p></div>
+        </details>
+        <details>
+          <summary>Can I use the text on Etsy, Shopify, Amazon, or my own site?</summary>
+          <div><p>Yes, the text is yours to use. Each marketplace has its own listing rules, such as title length or banned claims, so check them before publishing.</p></div>
+        </details>
+        <details>
+          <summary>Will this improve my search rankings?</summary>
+          <div><p>We cannot promise that. Clear descriptions that use the words shoppers search for can help, but rankings depend on many factors outside your description.</p></div>
+        </details>
+      </div>
+    </div>
+    <aside>
+      <div class="card sidebar-box">
+        <h2 class="card-title">Guide</h2>
+        <p class="card-text">A step-by-step method with examples, and a list of claims to avoid.</p>
+        <p><a href="/guides/how-to-write-a-product-description/">How to write a clear product description</a></p>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <h2>Related free tools</h2>
+    {{relatedTools product-description-generator}}
+  </div>
+</section>
