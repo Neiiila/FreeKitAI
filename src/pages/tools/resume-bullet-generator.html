@@ -1,0 +1,161 @@
+<!--meta
+{
+  "title": "Free Resume Bullet Generator – Rewrite Your Experience Clearly",
+  "description": "Turn a plain description of your work into three clear resume bullet points. Free, no sign-up, runs in your browser, and never invents achievements.",
+  "h1": "Free Resume Bullet Generator",
+  "section": "tools",
+  "toolId": "resume-bullet-generator",
+  "breadcrumbs": [["All Tools", "/tools/"], ["Resume Bullet Generator", "/tools/resume-bullet-generator/"]],
+  "scripts": ["/assets/js/tools/resume.js"]
+}
+-->
+<div class="container">
+  <header class="page-head">
+    <h1>Free Resume Bullet Generator</h1>
+    <p class="lead">Describe something you did at work in your own words. The tool rewrites it as three resume bullet points that start with an action verb, so you can pick the one that fits and edit it.</p>
+    <p class="badge badge-local">{{icon lock}}<span>Runs in your browser &middot; No sign-up</span></p>
+  </header>
+
+  <div class="tool-layout">
+    <section class="panel" aria-labelledby="rb-form-title">
+      <h2 class="panel-title" id="rb-form-title">Your experience</h2>
+      <form id="rb-form" novalidate>
+        <div class="field">
+          <label for="rb-title">Job title <span class="optional">(optional)</span></label>
+          <input id="rb-title" name="jobTitle" type="text" autocomplete="organization-title" placeholder="e.g. Customer Service Assistant">
+        </div>
+        <div class="field">
+          <label for="rb-desc">What did you do?</label>
+          <p class="hint" id="rb-desc-hint">One task or responsibility. Plain language is fine, for example “I was responsible for answering customer emails”.</p>
+          <textarea id="rb-desc" name="description" rows="4" aria-describedby="rb-desc-hint rb-desc-error" required></textarea>
+          <p class="error-msg" id="rb-desc-error"></p>
+        </div>
+        <div class="field">
+          <label for="rb-skills">Skills or tools used <span class="optional">(optional)</span></label>
+          <input id="rb-skills" name="skills" type="text" placeholder="e.g. Excel, Zendesk" aria-describedby="rb-skills-hint">
+          <p class="hint" id="rb-skills-hint">Separate with commas. Up to three are used.</p>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="rb-industry">Industry <span class="optional">(optional)</span></label>
+            <input id="rb-industry" name="industry" type="text" placeholder="e.g. retail">
+          </div>
+          <div class="field">
+            <label for="rb-tense">Tense</label>
+            <select id="rb-tense" name="tense">
+              <option value="past">Past (previous role)</option>
+              <option value="present">Present (current role)</option>
+            </select>
+          </div>
+        </div>
+        <fieldset class="field">
+          <legend>Tone</legend>
+          <div class="segmented">
+            <label><input type="radio" name="tone" value="professional" checked><span>Professional</span></label>
+            <label><input type="radio" name="tone" value="concise"><span>Concise</span></label>
+            <label><input type="radio" name="tone" value="achievement"><span>Achievement-focused</span></label>
+          </div>
+        </fieldset>
+        <div class="btn-row">
+          <button class="btn btn-primary" type="submit">Generate bullets</button>
+          <button class="btn btn-ghost" type="reset">Reset</button>
+          <button class="btn btn-ghost" type="button" data-example>Try an example</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="panel" aria-labelledby="rb-out-title">
+      <h2 class="panel-title" id="rb-out-title">
+        <span>Your bullet points</span>
+        <button class="btn btn-secondary btn-sm" type="button" id="rb-more" hidden>Show other wording</button>
+      </h2>
+      <div id="rb-notes"></div>
+      <div class="output-empty" id="rb-empty">
+        <span class="card-icon">{{icon list}}</span>
+        <p>Your three bullet options will appear here. You can edit them before copying.</p>
+      </div>
+      <div id="rb-results"></div>
+      <div class="btn-row" id="rb-actions" hidden>
+        <button class="btn btn-secondary btn-sm" type="button" id="rb-copy-all">Copy all</button>
+      </div>
+      <p class="disclaimer">This tool rewords what you enter using fixed templates. It is not AI and does not know your work history. Review every bullet for accuracy, and only add numbers or results you can back up.</p>
+    </section>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container content-grid">
+    <div class="prose">
+      <h2>How to use the resume bullet generator</h2>
+      <ol>
+        <li>Write one thing you did in your own words. It can be rough, like “helped customers with returns”.</li>
+        <li>Add the tools or skills you used, if any, and choose past tense for an old job or present tense for your current one.</li>
+        <li>Pick a tone and select <strong>Generate bullets</strong>. Use <strong>Show other wording</strong> to try different action verbs.</li>
+        <li>Edit the version you like. Replace anything in <code>[brackets]</code> with a real number or result, or delete it.</li>
+      </ol>
+
+      <h2>What the three tones do</h2>
+      <ul>
+        <li><strong>Professional</strong> keeps your full description and adds your skills or industry for context.</li>
+        <li><strong>Concise</strong> trims the bullet to the action and the object. It suits a one-page resume.</li>
+        <li><strong>Achievement-focused</strong> adds a placeholder for a measurable result, so you remember to show impact. The tool never fills in a number for you.</li>
+      </ul>
+
+      <h2>Example</h2>
+      <div class="example">
+        <span class="label">You enter</span>
+        <p>I was responsible for answering customer emails and phone calls. Skills: Zendesk.</p>
+      </div>
+      <div class="example">
+        <span class="label">Possible bullets</span>
+        <p>Answered customer emails and phone calls, using Zendesk.<br>Responded to customer emails and phone calls in a retail setting.<br>Used Zendesk to handle customer emails and phone calls.</p>
+      </div>
+      <p>Then make it specific: “Answered 40–60 customer emails a day in Zendesk” is stronger, but only if the number is true.</p>
+
+      <h2>Limitations</h2>
+      <ul>
+        <li>The generator follows grammar rules and a built-in list of common verbs. Unusual phrasing can come out awkward, so always read the result.</li>
+        <li>It works best with one task at a time. If you paste several sentences, only the first one is used.</li>
+        <li>It cannot judge whether a bullet suits a particular job posting. Tailoring is up to you.</li>
+      </ul>
+
+      <h2>Frequently asked questions</h2>
+      <div class="faq">
+        <details>
+          <summary>Does this tool use AI?</summary>
+          <div><p>No. It uses transparent rules: it finds the action in your sentence, removes filler phrases such as “I was responsible for”, and rebuilds the sentence with a strong verb. That is also why it never invents details.</p></div>
+        </details>
+        <details>
+          <summary>Is my information stored or sent anywhere?</summary>
+          <div><p>No. Everything runs in your browser. What you type is not sent to a server and is gone when you close or reload the page.</p></div>
+        </details>
+        <details>
+          <summary>Should resume bullets be in past or present tense?</summary>
+          <div><p>A common convention is present tense for your current job and past tense for previous jobs. Choose the tense setting to match.</p></div>
+        </details>
+        <details>
+          <summary>How many bullet points should each job have?</summary>
+          <div><p>There is no fixed rule. Many resumes use three to five bullets for recent roles and fewer for older ones. Focus on the tasks most relevant to the job you are applying for.</p></div>
+        </details>
+        <details>
+          <summary>Why are there placeholders in brackets?</summary>
+          <div><p>Numbers and outcomes make bullets stronger, but only you know the real figures. The brackets remind you to add a verified result or delete the phrase.</p></div>
+        </details>
+      </div>
+    </div>
+    <aside>
+      <div class="card sidebar-box">
+        <h2 class="card-title">Guide</h2>
+        <p class="card-text">Learn the structure recruiters expect, with before-and-after examples.</p>
+        <p><a href="/guides/how-to-write-resume-bullet-points/">How to write strong resume bullet points</a></p>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <h2>Related free tools</h2>
+    {{relatedTools resume-bullet-generator}}
+  </div>
+</section>
