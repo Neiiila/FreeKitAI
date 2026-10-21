@@ -1,0 +1,15 @@
+{
+  "name": "FreeKit AI",
+  "shortName": "FreeKit",
+  "tagline": "Free online tools to work smarter",
+  "mission": "Help people work smarter, write better, and grow their projects using free online tools.",
+  "baseUrl": "https://freekit-ai.pages.dev",
+  "contactEmail": "",
+  "operator": "",
+  "jurisdiction": "",
+  "lastUpdated": "2026-10-20",
+  "analytics": {
+    "cloudflareWebAnalyticsToken": ""
+  },
+  "searchConsoleVerification": ""
+}
