@@ -1,0 +1,162 @@
+<!--meta
+{
+  "title": "Free Social Media Caption Generator – Instagram, TikTok, LinkedIn",
+  "description": "Get three caption ideas for Instagram, TikTok, Facebook, or LinkedIn with relevant hashtags and a live character count. Free and no sign-up.",
+  "h1": "Social Media Caption Generator",
+  "section": "tools",
+  "toolId": "social-media-caption-generator",
+  "breadcrumbs": [["All Tools", "/tools/"], ["Caption Generator", "/tools/social-media-caption-generator/"]],
+  "scripts": ["/assets/js/tools/captions.js"]
+}
+-->
+<div class="container">
+  <header class="page-head">
+    <h1>Social Media Caption Generator</h1>
+    <p class="lead">Enter what your post is about and get three different caption drafts formatted for your platform, with optional hashtags made from your own keywords and a character count for each draft.</p>
+    <p class="badge badge-local">{{icon lock}}<span>Runs in your browser &middot; No sign-up</span></p>
+  </header>
+
+  <div class="tool-layout">
+    <section class="panel" aria-labelledby="sc-form-title">
+      <h2 class="panel-title" id="sc-form-title">Your post</h2>
+      <form id="sc-form" novalidate>
+        <div class="field">
+          <label for="sc-topic">Topic or product</label>
+          <input id="sc-topic" name="topic" type="text" placeholder="e.g. our new autumn candle collection" aria-describedby="sc-topic-error" required>
+          <p class="error-msg" id="sc-topic-error"></p>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="sc-platform">Platform</label>
+            <select id="sc-platform" name="platform">
+              <option value="instagram">Instagram</option>
+              <option value="tiktok">TikTok</option>
+              <option value="facebook">Facebook</option>
+              <option value="linkedin">LinkedIn</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="sc-hashtags">Hashtags</label>
+            <select id="sc-hashtags" name="hashtags">
+              <option value="few">A few (up to 3)</option>
+              <option value="more">More (platform maximum we suggest)</option>
+              <option value="none">None</option>
+            </select>
+          </div>
+        </div>
+        <fieldset class="field">
+          <legend>Tone</legend>
+          <div class="segmented">
+            <label><input type="radio" name="tone" value="friendly" checked><span>Friendly</span></label>
+            <label><input type="radio" name="tone" value="professional"><span>Professional</span></label>
+            <label><input type="radio" name="tone" value="funny"><span>Funny</span></label>
+            <label><input type="radio" name="tone" value="inspirational"><span>Inspirational</span></label>
+          </div>
+        </fieldset>
+        <div class="field">
+          <label for="sc-keywords">Keywords <span class="optional">(optional)</span></label>
+          <input id="sc-keywords" name="keywords" type="text" placeholder="e.g. soy wax, cozy home, handmade" aria-describedby="sc-keywords-hint">
+          <p class="hint" id="sc-keywords-hint">Separate with commas. Hashtags are created from these and your topic.</p>
+        </div>
+        <div class="field">
+          <label for="sc-cta">Call to action <span class="optional">(optional)</span></label>
+          <input id="sc-cta" name="cta" type="text" list="sc-cta-list" placeholder="e.g. Shop the collection, link in bio">
+          <datalist id="sc-cta-list">
+            <option value="Link in bio"></option>
+            <option value="Comment your favorite below"></option>
+            <option value="Save this post for later"></option>
+            <option value="Share this with a friend who needs it"></option>
+            <option value="Send us a message to order"></option>
+            <option value="What do you think? Let us know in the comments"></option>
+          </datalist>
+        </div>
+        <label class="check field"><input type="checkbox" name="emoji" checked> Include emoji (not used on LinkedIn)</label>
+        <div class="btn-row">
+          <button class="btn btn-primary" type="submit">Generate captions</button>
+          <button class="btn btn-ghost" type="reset">Reset</button>
+          <button class="btn btn-ghost" type="button" data-example>Try an example</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="panel" aria-labelledby="sc-out-title">
+      <h2 class="panel-title" id="sc-out-title">
+        <span>Caption ideas</span>
+        <button class="btn btn-secondary btn-sm" type="button" id="sc-again" hidden>More variations</button>
+      </h2>
+      <div id="sc-notes"></div>
+      <div class="output-empty" id="sc-empty">
+        <span class="card-icon">{{icon megaphone}}</span>
+        <p>Three caption drafts will appear here, each with a character count.</p>
+      </div>
+      <div id="sc-results"></div>
+      <p class="disclaimer">Captions are assembled from templates and your own words, not written by AI. Check that each caption is accurate and suits your audience, and follow each platform's rules, including disclosure rules for sponsored posts.</p>
+    </section>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container content-grid">
+    <div class="prose">
+      <h2>How to use the caption generator</h2>
+      <ol>
+        <li>Describe the post in a few words, for example “our new autumn candle collection” or “tips for working from home”.</li>
+        <li>Choose the platform. The layout, emoji, and hashtag count adjust to it.</li>
+        <li>Add keywords you want people to notice and a call to action, then generate.</li>
+        <li>Edit your favorite draft. The character count updates as you type.</li>
+      </ol>
+
+      <h2>How the hashtags are chosen</h2>
+      <p>Hashtags are made only from your topic and keywords, for example “soy wax” becomes <code>#SoyWax</code>. The tool does not add trending or generic tags, because unrelated hashtags can attract the wrong audience. If you want more hashtags, add more specific keywords.</p>
+
+      <h2>Platform notes</h2>
+      <table>
+        <thead><tr><th scope="col">Platform</th><th scope="col">Caption length limit</th><th scope="col">Hashtags we suggest</th></tr></thead>
+        <tbody>
+          <tr><td>Instagram</td><td>2,200 characters</td><td>Up to 10</td></tr>
+          <tr><td>TikTok</td><td>4,000 characters</td><td>Up to 6</td></tr>
+          <tr><td>Facebook</td><td>About 63,000 characters</td><td>Up to 3</td></tr>
+          <tr><td>LinkedIn</td><td>3,000 characters</td><td>Up to 5</td></tr>
+        </tbody>
+      </table>
+      <p class="small muted">Platforms change their limits from time to time. Check each platform's help pages if you are close to a limit.</p>
+
+      <h2>Limitations</h2>
+      <ul>
+        <li>The tool does not know your brand voice, current trends, or what performs well for your account. Treat the drafts as a starting point.</li>
+        <li>Template phrases can repeat if you use the same tone often. Edit them to sound like you.</li>
+        <li>It does not check whether a hashtag is already used for something unrelated. Search a hashtag before you rely on it.</li>
+      </ul>
+
+      <h2>Frequently asked questions</h2>
+      <div class="faq">
+        <details>
+          <summary>Are these captions generated by AI?</summary>
+          <div><p>No. They are built from caption structures written in advance: a hook, an optional keyword line, your call to action, and hashtags. Your inputs fill in the details.</p></div>
+        </details>
+        <details>
+          <summary>How many hashtags should I use?</summary>
+          <div><p>There is no single correct number. A few specific, relevant hashtags are usually more useful than many generic ones. Platforms also publish their own advice, which changes over time.</p></div>
+        </details>
+        <details>
+          <summary>Can I use these captions for client accounts?</summary>
+          <div><p>Yes. The output is yours to use and edit. Review it for accuracy and brand fit first.</p></div>
+        </details>
+      </div>
+    </div>
+    <aside>
+      <div class="card sidebar-box">
+        <h2 class="card-title">Also useful</h2>
+        <p class="card-text">Writing a product post? Draft accurate product copy first.</p>
+        <p><a href="/tools/product-description-generator/">Product Description Generator</a></p>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <h2>Related free tools</h2>
+    {{relatedTools social-media-caption-generator}}
+  </div>
+</section>
