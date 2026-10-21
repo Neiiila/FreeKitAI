@@ -1,0 +1,103 @@
+<!--meta
+{
+  "title": "FreeKit AI – Free Online Tools to Work Smarter",
+  "description": "Free online tools for writing, careers, social media, and small business: resume bullets, professional emails, captions, word counting, and product descriptions. No account needed.",
+  "section": "home"
+}
+-->
+<section class="hero">
+  <div class="container hero-inner">
+    <h1>Free Online Tools to Work Smarter</h1>
+    <p class="lead">Write better, save time, and simplify everyday tasks with practical free tools designed for work, study, and business.</p>
+    <form class="hero-search" action="/tools/" method="get" role="search" data-hero-search>
+      <label class="sr-only" for="hero-q">Search tools</label>
+      <div class="hero-search-box">
+        {{icon search}}
+        <input id="hero-q" name="q" type="search" placeholder="What do you need help with today?" autocomplete="off" aria-describedby="hero-q-status" aria-controls="hero-suggestions">
+        <button class="btn btn-primary" type="submit">Search</button>
+      </div>
+      <ul class="suggestions" id="hero-suggestions" data-suggestions hidden></ul>
+      <p class="sr-only" id="hero-q-status" aria-live="polite" data-suggestions-status></p>
+    </form>
+    <div class="btn-row">
+      <a class="btn btn-primary" href="/tools/">Explore Free Tools</a>
+      <a class="btn btn-secondary" href="/tools/word-counter/">Try a Tool</a>
+    </div>
+    <p class="hero-note">No account needed. The tools run in your browser.</p>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="popular-title">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Start here</span>
+      <h2 id="popular-title">Free tools to get started</h2>
+      <p>Five practical tools to start with. Each one opens on its own page, with instructions and examples.</p>
+    </div>
+    {{toolCards}}
+  </div>
+</section>
+
+<section class="section section-alt" aria-labelledby="cats-title">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Browse</span>
+      <h2 id="cats-title">Browse by category</h2>
+      <p>Find tools by the kind of work you are doing.</p>
+    </div>
+    {{categoryCards}}
+  </div>
+</section>
+
+<section class="section" aria-labelledby="why-title">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Why us</span>
+      <h2 id="why-title">Why use {{site.name}}?</h2>
+    </div>
+    <div class="grid grid-features">
+      <div class="feature">
+        <span class="card-icon">{{icon gift}}</span>
+        <h3>Free to use</h3>
+        <p>Every tool on the site is free. There is no trial and no payment wall.</p>
+      </div>
+      <div class="feature">
+        <span class="card-icon">{{icon user}}</span>
+        <h3>No account needed</h3>
+        <p>Open a tool and start. There is no sign-up, login, or email required.</p>
+      </div>
+      <div class="feature">
+        <span class="card-icon">{{icon bolt}}</span>
+        <h3>Simple to use</h3>
+        <p>One clear form, instant results, and copy buttons. No clutter.</p>
+      </div>
+      <div class="feature">
+        <span class="card-icon">{{icon phone}}</span>
+        <h3>Works on your phone</h3>
+        <p>Every page is designed to work on phones, tablets, and desktops.</p>
+      </div>
+      <div class="feature">
+        <span class="card-icon">{{icon lock}}</span>
+        <h3>Your text stays private</h3>
+        <p>The tools run in your browser. What you type is not sent to our servers or stored. See the <a href="/privacy/">privacy policy</a>.</p>
+      </div>
+      <div class="feature">
+        <span class="card-icon">{{icon doc}}</span>
+        <h3>Honest about how it works</h3>
+        <p>Our writing tools use clear templates, not hidden AI, and they never invent facts, numbers, or claims for you.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" aria-labelledby="guides-title">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Learn</span>
+      <h2 id="guides-title">Helpful guides</h2>
+      <p>Practical tutorials with real examples that you can use with the tools.</p>
+    </div>
+    {{guideCards}}
+    <p><a href="/guides/">See all guides <span aria-hidden="true">&rarr;</span></a></p>
+  </div>
+</section>

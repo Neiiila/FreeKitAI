@@ -1,0 +1,48 @@
+<!--meta
+{
+  "title": "All Free Online Tools",
+  "description": "Browse every free tool: resume bullet generator, email generator, social media captions, word counter, and product descriptions. Search or filter by category.",
+  "section": "tools",
+  "breadcrumbs": [["All Tools", "/tools/"]]
+}
+-->
+<div class="container">
+  <header class="page-head">
+    <h1>All free tools</h1>
+    <p class="lead">Search for a tool or filter by category. Every tool is free, needs no account, and runs in your browser.</p>
+  </header>
+
+  <form class="filter-bar" data-filter role="search">
+    <div class="filter-search">
+      <label class="sr-only" for="tools-q">Search tools</label>
+      <input id="tools-q" name="q" type="search" placeholder="Search tools, e.g. “email” or “hashtags”" autocomplete="off" data-filter-input>
+    </div>
+    <div class="chips" role="group" aria-label="Filter by category">
+      <button type="button" class="chip" data-category="all" aria-pressed="true">All</button>
+      <button type="button" class="chip" data-category="writing" aria-pressed="false">Writing &amp; Communication</button>
+      <button type="button" class="chip" data-category="career" aria-pressed="false">Career &amp; Productivity</button>
+      <button type="button" class="chip" data-category="social" aria-pressed="false">Social Media &amp; Marketing</button>
+      <button type="button" class="chip" data-category="text" aria-pressed="false">Text &amp; Document Utilities</button>
+      <button type="button" class="chip" data-category="ecommerce" aria-pressed="false">E-commerce &amp; Small Business</button>
+    </div>
+    <p class="result-count" data-filter-count aria-live="polite"></p>
+  </form>
+
+  <div data-filter-results>
+    {{toolCards h=2}}
+  </div>
+  <div class="empty-state" data-filter-empty hidden>
+    <h2>No tools match your search</h2>
+    <p>Try a simpler word, such as “resume”, “email”, or “caption”, or clear the filters.</p>
+    <button class="btn btn-secondary" type="button" data-filter-reset>Clear search and filters</button>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <h2>Missing a tool you need?</h2>
+      <p>We add tools based on what people actually ask for. Tell us what would help through the <a href="/contact/">contact page</a>.</p>
+    </div>
+  </div>
+</section>
