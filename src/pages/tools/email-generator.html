@@ -1,0 +1,166 @@
+<!--meta
+{
+  "title": "Free Professional Email Generator – Templates for Work & Job Search",
+  "description": "Draft a professional email with a subject line in seconds: interview follow-ups, meeting requests, reminders, apologies and more. Free, no sign-up.",
+  "h1": "Professional Email & Reply Generator",
+  "section": "tools",
+  "toolId": "email-generator",
+  "breadcrumbs": [["All Tools", "/tools/"], ["Email Generator", "/tools/email-generator/"]],
+  "scripts": ["/assets/js/tools/email.js"]
+}
+-->
+<div class="container">
+  <header class="page-head">
+    <h1>Professional Email &amp; Reply Generator</h1>
+    <p class="lead">Choose what your email is for, add your key points, and get a ready-to-edit draft with a subject line. Useful for follow-ups, requests, thank-you notes, and replies to customers.</p>
+    <p class="badge badge-local">{{icon lock}}<span>Runs in your browser &middot; No sign-up</span></p>
+  </header>
+
+  <div class="tool-layout">
+    <section class="panel" aria-labelledby="em-form-title">
+      <h2 class="panel-title" id="em-form-title">Email details</h2>
+      <form id="em-form" novalidate>
+        <div class="field">
+          <label for="em-purpose">What is the email for?</label>
+          <select id="em-purpose" name="purpose" aria-describedby="em-purpose-error" required></select>
+          <p class="error-msg" id="em-purpose-error"></p>
+        </div>
+        <div class="field">
+          <label for="em-topic">Topic or reference <span class="optional">(optional)</span></label>
+          <input id="em-topic" name="topic" type="text" aria-describedby="em-topic-hint">
+          <p class="hint" id="em-topic-hint">For example a job title, project name, or invoice number. Leave it empty to get a placeholder.</p>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="em-recipient">Recipient</label>
+            <select id="em-recipient" name="recipientType"></select>
+          </div>
+          <div class="field">
+            <label for="em-rname">Recipient's name <span class="optional">(optional)</span></label>
+            <input id="em-rname" name="recipientName" type="text" placeholder="e.g. Ms. Patel">
+          </div>
+        </div>
+        <div class="field">
+          <label for="em-points">Key points to include <span class="optional">(optional)</span></label>
+          <p class="hint" id="em-points-hint">One point per line, written as a short sentence.</p>
+          <textarea id="em-points" name="points" rows="4" aria-describedby="em-points-hint" placeholder="I am available Tuesday or Thursday afternoon.&#10;My portfolio is linked below."></textarea>
+        </div>
+        <div class="field">
+          <label for="em-sender">Your name <span class="optional">(optional)</span></label>
+          <input id="em-sender" name="senderName" type="text" autocomplete="name">
+        </div>
+        <fieldset class="field">
+          <legend>Tone</legend>
+          <div class="segmented">
+            <label><input type="radio" name="tone" value="formal"><span>Formal</span></label>
+            <label><input type="radio" name="tone" value="friendly"><span>Friendly</span></label>
+            <label><input type="radio" name="tone" value="polite" checked><span>Polite</span></label>
+            <label><input type="radio" name="tone" value="assertive"><span>Assertive</span></label>
+          </div>
+        </fieldset>
+        <fieldset class="field">
+          <legend>Length</legend>
+          <div class="segmented">
+            <label><input type="radio" name="length" value="short"><span>Short</span></label>
+            <label><input type="radio" name="length" value="medium" checked><span>Medium</span></label>
+            <label><input type="radio" name="length" value="detailed"><span>Detailed</span></label>
+          </div>
+        </fieldset>
+        <div class="btn-row">
+          <button class="btn btn-primary" type="submit">Write my email</button>
+          <button class="btn btn-ghost" type="reset">Reset</button>
+          <button class="btn btn-ghost" type="button" data-example>Try an example</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="panel" aria-labelledby="em-out-title">
+      <h2 class="panel-title" id="em-out-title">
+        <span>Your draft</span>
+        <button class="btn btn-secondary btn-sm" type="button" id="em-again" hidden>Try another version</button>
+      </h2>
+      <div id="em-notes"></div>
+      <div class="output-empty" id="em-empty">
+        <span class="card-icon">{{icon mail}}</span>
+        <p>Your subject line and email will appear here, ready to edit and copy.</p>
+      </div>
+      <div id="em-results"></div>
+      <div class="btn-row" id="em-actions" hidden>
+        <button class="btn btn-secondary btn-sm" type="button" id="em-copy-all">Copy subject and email</button>
+      </div>
+      <p class="disclaimer">This basic version builds emails from templates written by people. It does not use a live AI model. Check names, dates, and facts before you send anything.</p>
+    </section>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container content-grid">
+    <div class="prose">
+      <h2>How to use the email generator</h2>
+      <ol>
+        <li>Pick the purpose that is closest to your situation, such as “Follow up when you have had no reply”.</li>
+        <li>Add a topic or reference so the subject line is specific, for example “Marketing Coordinator” or “Invoice #1042”.</li>
+        <li>List the facts the reader needs, one per line. They are added to the email as you wrote them.</li>
+        <li>Choose a tone and length, then select <strong>Write my email</strong>. Use <strong>Try another version</strong> for different wording.</li>
+        <li>Fill in any <code>[placeholders]</code>, read it once more, and paste it into your email app.</li>
+      </ol>
+
+      <h2>Choosing the right tone</h2>
+      <ul>
+        <li><strong>Formal</strong>: first contact with a hiring manager, a professor, or a new client. No contractions.</li>
+        <li><strong>Polite</strong>: a good default for most workplace emails.</li>
+        <li><strong>Friendly</strong>: colleagues and people you already know. Uses contractions such as “I'm”.</li>
+        <li><strong>Assertive</strong>: when you need a clear answer or action, such as an overdue payment or a second follow-up. It stays courteous but gets to the point.</li>
+      </ul>
+
+      <h2>Example uses</h2>
+      <ul>
+        <li>Thanking an interviewer within a day of the interview.</li>
+        <li>Asking a colleague for a 20-minute meeting next week.</li>
+        <li>Reminding a client that an invoice is due.</li>
+        <li>Asking a teacher for a deadline extension and giving a reason.</li>
+      </ul>
+
+      <h2>Limitations</h2>
+      <ul>
+        <li>The tool does not read your previous emails or know the person you are writing to. It cannot reply to a specific message for you.</li>
+        <li>Key points are inserted as you write them. They are not rewritten, so check their grammar.</li>
+        <li>For legal, medical, or financial matters, get advice from a qualified person before you send anything.</li>
+      </ul>
+
+      <h2>Frequently asked questions</h2>
+      <div class="faq">
+        <details>
+          <summary>Is this an AI email writer?</summary>
+          <div><p>No. This first version uses a rule-based template engine: each purpose has hand-written sentence patterns, and your tone and length choices decide which ones are used. That keeps it fast, free, and private.</p></div>
+        </details>
+        <details>
+          <summary>Are my emails saved?</summary>
+          <div><p>No. The draft is created in your browser and is not sent to or stored on our servers.</p></div>
+        </details>
+        <details>
+          <summary>How long should a professional email be?</summary>
+          <div><p>As short as it can be while still giving the reader what they need. Use “Short” for quick replies and “Detailed” when the reader needs several facts to act.</p></div>
+        </details>
+        <details>
+          <summary>When should I follow up if nobody replies?</summary>
+          <div><p>It depends on the situation and on any timeline you were given. If you were told when to expect an answer, wait until that date has passed before following up.</p></div>
+        </details>
+      </div>
+    </div>
+    <aside>
+      <div class="card sidebar-box">
+        <h2 class="card-title">Guide</h2>
+        <p class="card-text">What to say, when to send it, and three example emails.</p>
+        <p><a href="/guides/follow-up-email-after-interview/">How to write a follow-up email after an interview</a></p>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <h2>Related free tools</h2>
+    {{relatedTools email-generator}}
+  </div>
+</section>
