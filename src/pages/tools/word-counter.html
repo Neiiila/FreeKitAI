@@ -43,6 +43,33 @@
           <div class="stat"><dt>Speaking time</dt><dd data-stat="speakingTime">0 sec</dd></div>
         </dl>
         <p class="small muted">Reading time assumes about 238 words per minute; speaking time about 140. Sentence counts are estimates.</p>
+
+        <div class="limit-check">
+          <div class="field">
+            <label for="wc-limit">Check against a limit</label>
+            <select id="wc-limit" aria-describedby="wc-limit-note">
+              <option value="">No limit</option>
+            </select>
+          </div>
+          <div class="field-row" id="wc-custom" hidden>
+            <div class="field">
+              <label for="wc-custom-max">Maximum</label>
+              <input id="wc-custom-max" type="number" min="1" step="1" inputmode="numeric" value="500">
+            </div>
+            <div class="field">
+              <label for="wc-custom-unit">Counted in</label>
+              <select id="wc-custom-unit">
+                <option value="words">Words</option>
+                <option value="characters">Characters</option>
+              </select>
+            </div>
+          </div>
+          <div class="limit-result" id="wc-limit-result" hidden>
+            <div class="limit-bar" id="wc-limit-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-labelledby="wc-limit-text"><span class="limit-fill" id="wc-limit-fill"></span></div>
+            <p class="limit-text" id="wc-limit-text"></p>
+          </div>
+          <p class="hint" id="wc-limit-note"></p>
+        </div>
       </section>
 
       <section class="panel" aria-labelledby="wc-clean-title">
