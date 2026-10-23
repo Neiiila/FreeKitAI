@@ -263,6 +263,16 @@ fieldset { border: 0; padding: 0; margin: 0 0 1rem; min-width: 0; }
 .stat dt { font-size: .8rem; color: var(--text-muted); font-weight: 550; }
 .stat dd { margin: 0; font-size: 1.35rem; font-weight: 700; font-variant-numeric: tabular-nums; }
 .wc-input { min-height: 320px; }
+.limit-check { border-top: 1px solid var(--border); margin-top: 1rem; padding-top: 1rem; }
+.limit-check .field { margin-bottom: .75rem; }
+.limit-result { margin-bottom: .5rem; }
+.limit-bar { height: 10px; border-radius: 999px; background: var(--surface-2); border: 1px solid var(--border); overflow: hidden; }
+.limit-fill { display: block; height: 100%; width: 0; background: var(--success); transition: width .15s; }
+.limit-bar[data-status="near"] .limit-fill { background: var(--warn-text); }
+.limit-bar[data-status="over"] .limit-fill { background: var(--danger); }
+.limit-text { margin: .45rem 0 0; font-weight: 600; font-size: .95rem; font-variant-numeric: tabular-nums; }
+.limit-text[data-status="near"] { color: var(--warn-text); }
+.limit-text[data-status="over"] { color: var(--danger); }
 .tool-actions-group { margin-bottom: 1rem; }
 .tool-actions-group h3 { font-size: .9rem; color: var(--text-muted); font-weight: 650; margin-bottom: .5rem; }
 
