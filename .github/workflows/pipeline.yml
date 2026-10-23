@@ -1,0 +1,32 @@
+﻿name: FirstPipline
+
+on:
+  push:
+    branches: [main]      # deploy when main changes
+  pull_request:           # only check (no deploy) on pull requests
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4          # 1. download the code
+      - uses: actions/setup-node@v4        # 2. install Node
+        with:
+          node-version: 22
+      - run: npm run check                 # 3. build + tests + link check
+
+  deploy:
+    needs: check                           # only runs if "check" passed
+    if: github.ref == 'refs/heads/main'    # only for main, never for PRs
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm run build
+      - uses: cloudflare/wrangler-action@v3   # 4. upload dist/ to Cloudflare
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy dist --project-name=freekit-ai
