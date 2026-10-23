@@ -8,6 +8,7 @@ import { generateEmail, PURPOSES, RECIPIENTS, TONES as EMAIL_TONES, LENGTHS } fr
 import { generateCaptions, PLATFORMS, TONES as CAPTION_TONES } from '../src/assets/js/engines/captions.js';
 import { stats, transforms } from '../src/assets/js/engines/textstats.js';
 import { generateProductDescription, TONES as PRODUCT_TONES } from '../src/assets/js/engines/product.js';
+import { LIMIT_PRESETS, checkLimit, describeLimit, findPreset } from '../src/assets/js/engines/limits.js';
 import { titleCase, sentenceCase, hashtag, article, splitList, joinList } from '../src/assets/js/engines/text.js';
 
 let passed = 0;
@@ -197,6 +198,45 @@ test('transforms', () => {
   assert.equal(transforms.joinBrokenLines('This is a\nbroken line with hyph-\nenation.\n\nNew para'), 'This is a broken line with hyphenation.\n\nNew para');
   assert.equal(transforms.upper('abc'), 'ABC');
   assert.equal(transforms.lower('ABC'), 'abc');
+});
+
+// ---------------- length limits ----------------
+test('limits: presets are complete and unique', () => {
+  const ids = new Set();
+  for (const p of LIMIT_PRESETS) {
+    assert.ok(!ids.has(p.id), `duplicate ${p.id}`);
+    ids.add(p.id);
+    assert.ok(['characters', 'words'].includes(p.unit), p.id);
+    assert.ok(Number.isInteger(p.max) && p.max > 0, p.id);
+    assert.ok(['limit', 'recommended'].includes(p.kind), p.id);
+    if (p.kind === 'limit') assert.match(p.source || '', /^https:\/\//, `${p.id} needs a source`);
+  }
+  assert.equal(findPreset('x-post').max, 280);
+  assert.equal(findPreset('nope'), null);
+});
+test('limits: status thresholds', () => {
+  const t = { unit: 'characters', max: 100 };
+  assert.equal(checkLimit({ words: 0, characters: 0 }, t).status, 'ok');
+  assert.equal(checkLimit({ words: 0, characters: 89 }, t).status, 'ok');
+  assert.equal(checkLimit({ words: 0, characters: 90 }, t).status, 'near');
+  assert.equal(checkLimit({ words: 0, characters: 100 }, t).status, 'near');
+  const over = checkLimit({ words: 0, characters: 130 }, t);
+  assert.equal(over.status, 'over');
+  assert.equal(over.remaining, -30);
+  assert.equal(over.percent, 100);
+});
+test('limits: words unit and invalid targets', () => {
+  assert.equal(checkLimit({ words: 600, characters: 4000 }, { unit: 'words', max: 650 }).remaining, 50);
+  assert.equal(checkLimit({ words: 1, characters: 1 }, { unit: 'words', max: 0 }), null);
+  assert.equal(checkLimit({ words: 1, characters: 1 }, { unit: 'words', max: NaN }), null);
+  assert.equal(checkLimit({ words: 1, characters: 1 }, null), null);
+});
+test('limits: descriptions', () => {
+  const t = { unit: 'characters', max: 10 };
+  assert.equal(describeLimit(checkLimit({ words: 0, characters: 9 }, t), 'characters'), '1 character left');
+  assert.equal(describeLimit(checkLimit({ words: 0, characters: 10 }, t), 'characters'), 'Exactly at the limit');
+  assert.equal(describeLimit(checkLimit({ words: 0, characters: 12 }, t), 'characters'), '2 characters over the limit');
+  assert.equal(describeLimit(checkLimit({ words: 0, characters: 12 }, t), 'characters', 'recommended'), '2 characters over the recommended length');
 });
 
 // ---------------- product ----------------
