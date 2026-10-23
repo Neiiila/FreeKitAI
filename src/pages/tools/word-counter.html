@@ -1,7 +1,7 @@
 <!--meta
 {
   "title": "Free Word Counter & Text Cleaner – Count Words and Fix Spacing",
-  "description": "Count words, characters, sentences and reading time as you type. Remove extra spaces, fix line breaks, and change case. Your text never leaves your browser.",
+  "description": "Count words and characters as you type, check limits for X, LinkedIn, Instagram and YouTube, and clean up text. Nothing leaves your browser.",
   "h1": "Word Counter & Text Cleaner",
   "section": "tools",
   "toolId": "word-counter",
@@ -105,6 +105,7 @@
         <li>Type or paste text into the box. All counts update as you type.</li>
         <li>Use <strong>Clean up</strong> to fix spacing, for example after copying from a PDF or website.</li>
         <li>Use <strong>Change case</strong> for headings or text typed with Caps Lock on.</li>
+        <li>Writing for a platform or an assignment? Choose it under <strong>Check against a limit</strong>, or set a custom word or character limit, and watch the bar as you type.</li>
         <li>Made a mistake? <strong>Undo last change</strong> restores the text from before the last button you used.</li>
         <li>Select <strong>Copy text</strong> and paste the result where you need it.</li>
       </ol>
@@ -116,6 +117,21 @@
         <li><strong>Join broken lines</strong>: rejoins sentences that were split across lines (common when copying from PDFs), and keeps blank lines between paragraphs.</li>
         <li><strong>Title Case</strong>: capitalizes main words and keeps short words like “and” or “of” in lower case. Acronyms such as “NASA” are kept.</li>
       </ul>
+
+      <h2 id="limits">Character limits for common platforms</h2>
+      <p>These are the limits behind the presets in the tool. We checked each one against the platform's own documentation in October 2026. Platforms change their limits, so follow the source link if you are close to one.</p>
+      <table>
+        <thead><tr><th scope="col">Where</th><th scope="col">Limit</th><th scope="col">Source</th></tr></thead>
+        <tbody>
+          <tr><td>X (Twitter) post, standard account</td><td>280 characters</td><td><a href="https://help.x.com/en/using-x/types-of-posts" rel="noopener">X Help Center</a></td></tr>
+          <tr><td>LinkedIn post</td><td>3,000 characters</td><td><a href="https://www.linkedin.com/help/linkedin/answer/a528176" rel="noopener">LinkedIn Help</a></td></tr>
+          <tr><td>Instagram caption</td><td>2,200 characters</td><td><a href="https://developers.facebook.com/docs/instagram-platform/instagram-graph-api/reference/ig-user/media" rel="noopener">Meta developer docs</a></td></tr>
+          <tr><td>YouTube video title</td><td>100 characters</td><td><a href="https://support.google.com/youtube/answer/57404" rel="noopener">YouTube Help</a></td></tr>
+          <tr><td>YouTube video description</td><td>5,000 characters</td><td><a href="https://support.google.com/youtube/answer/12948449" rel="noopener">YouTube Help</a></td></tr>
+        </tbody>
+      </table>
+      <p>Two presets are <strong>recommendations, not limits</strong>: about 60 characters for a page title and about 155 for a meta description. Search engines shorten these by how wide they are on screen, not by a fixed count, so treat them as a guide.</p>
+      <p>Platforms may count some things differently from this tool. For example, X counts every link as 23 characters, whatever its length.</p>
 
       <h2>Common uses</h2>
       <ul>
@@ -145,6 +161,10 @@
         <details>
           <summary>How is reading time calculated?</summary>
           <div><p>The word count divided by about 238 words per minute, a widely cited average for adults silently reading non-fiction. Real reading speed varies a lot from person to person.</p></div>
+        </details>
+        <details>
+          <summary>Why does a platform count my text differently?</summary>
+          <div><p>Each platform has its own counting rules. Some count links as a fixed length, and some count certain emoji or symbols as two characters. This tool counts characters the way people see them, so expect small differences near a limit.</p></div>
         </details>
         <details>
           <summary>Does it work with languages other than English?</summary>
